@@ -27,9 +27,9 @@ yo angular2-base
 
 MIT © [eeve]()
 
-[npm-image]: https://badge.fury.io/js/[npm-name].svg
-[npm-url]: https://npmjs.org/package/[npm-name]
-[travis-image]: https://travis-ci.org/eeve/[npm-name].svg?branch=master
-[travis-url]: https://travis-ci.org/eeve/[npm-name]
-[daviddm-image]: https://david-dm.org/eeve/[npm-name].svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/eeve/[npm-name]
+[npm-image]: https://badge.fury.io/js/generator-angular2-base.svg
+[npm-url]: https://npmjs.org/package/generator-angular2-base
+[travis-image]: https://travis-ci.org/eeve/generator-angular2-base.svg?branch=master
+[travis-url]: https://travis-ci.org/eeve/generator-angular2-base
+[daviddm-image]: https://david-dm.org/eeve/generator-angular2-base.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/eeve/generator-angular2-base
