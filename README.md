@@ -3,17 +3,17 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and [npm-name] using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-angular2-base using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g [npm-name]
+npm install -g generator-angular2-base
 ```
 
-Then generate your new js module:
+Then generate your new Angualar2 application:
 
 ```bash
-yo [npm-shortname]
+yo angular2-base
 ```
 
 ## Getting To Know Yeoman
@@ -27,9 +27,6 @@ yo [npm-shortname]
 
 MIT © [eeve]()
 
-[npm-name]: generator-angular2-base
-[npm-shortname]: angular2-base
-[npm-description]: Angular2 Yeoman Generator
 [npm-image]: https://badge.fury.io/js/[npm-name].svg
 [npm-url]: https://npmjs.org/package/[npm-name]
 [travis-image]: https://travis-ci.org/eeve/[npm-name].svg?branch=master
