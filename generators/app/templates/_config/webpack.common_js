@@ -1,0 +1,80 @@
+var webpack = require('webpack');
+var helpers = require('./helpers');
+
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var browsers = '{browsers:["last 2 version", "ie >= 8"]}';
+var csshandle = 'css?sourceMap!autoprefixer?' + browsers;
+
+module.exports = {
+	entry: {
+		polyfills: './app/lib/polyfills.ts',
+		vendor: './app/lib/vendor.ts',
+		app: './app/lib/app.ts'
+	},
+	resolve: {
+		extensions: ['', '.ts', '.js']
+	},
+	output:{
+		jsonpFunction: '$ML'
+	},
+	module: {
+		loaders:[
+			{
+        test: /\.ts$/,
+        loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+      },
+      {
+	      test: /\.html$/,
+	      loader: 'html'
+	    },
+			{
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        loader: 'file?name=assets/[name].[hash].[ext]'
+      },
+      {
+	      test: /\.css$/,
+	      exclude: helpers.root('app', 'components'),
+	      loader: ExtractTextPlugin.extract('style', csshandle)
+	    },
+      {
+	      test: /\.css$/,
+	      include: helpers.root('app', 'components'),
+	      loader: 'raw'
+	    }<% if ( props.useLess ) { %>
+      ,{
+        test: /\.less$/,
+        include: helpers.root('app', 'components'),
+        loader: 'raw!' + csshandle + '!less'
+      },
+      {
+        test: /\.less$/,
+        exclude: helpers.root('app', 'components'),
+        loader: ExtractTextPlugin.extract('style', csshandle + '!less')
+      }
+      <% } %>
+      <% if ( props.useSass ) { %>
+      ,{
+        test: /\.scss$/,
+        include: helpers.root('app', 'components'),
+        loader: 'raw!' + csshandle + '!sass'
+      },
+      {
+        test: /\.scss$/,
+        exclude: helpers.root('app', 'components'),
+        loader: ExtractTextPlugin.extract('style', csshandle + '!sass')
+      }
+      <% } %>
+		]
+	},
+	plugins: [
+		new webpack.optimize.CommonsChunkPlugin({
+			name: ['app', 'vendor', 'polyfills']
+		}),
+		new HtmlWebpackPlugin({
+      template: 'app/index.html',
+      css: [ "app/style.css" ]
+    })
+	]
+}
